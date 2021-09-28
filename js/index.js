@@ -8,12 +8,13 @@ let formularioEquacao = document.getElementById('formularioEquacao');
 
 formularioEquacao.onsubmit = function (e) {
   e.preventDefault();
-  contas.innerHTML = calcularOperacaoSegundoGrau(letraA,letraB,letraC);
+  calcularOperacaoSegundoGrau(letraA,letraB,letraC);
 }
 
 const calcularOperacaoSegundoGrau =
 (letraA,letraB,letraC) => {
 
+  contas.innerHTML = "";
   let a = letraA.value;
   let b = letraB.value;
   let c = letraC.value;
@@ -26,13 +27,20 @@ const calcularOperacaoSegundoGrau =
     let delta = (b*b) - 4 * (a) * (c);
 
     if (delta < 0) {
+      let contaParagrafo = document.createElement("p");
+      let contaResultado = document.createTextNode("A equeção não tem raízes reais");
+      contaParagrafo.appendChild(contaResultado);
+      contas.appendChild(contaParagrafo);
       return "A equeção não tem raízes reais";
     }
 
     x1 = ( -(b) +(Math.sqrt(delta))) / 2 * (a);
     x2 = ( -(b) -(Math.sqrt(delta))) / 2 * (a);
+    let contaParagrafo = document.createElement("p");
+    let contaResultado = document.createTextNode('a = '+a+' / b = '+b+' / c = '+c);
+    contaParagrafo.appendChild(contaResultado);
+    contas.appendChild(contaParagrafo);
 
-    console.log("a = "+a+" / b = "+b+" / c = "+c);
     return x1+" "+x2;
 
   } else if (a && b && !c) {
