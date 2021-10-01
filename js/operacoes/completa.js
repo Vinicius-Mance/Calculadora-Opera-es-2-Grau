@@ -9,8 +9,8 @@ const completa = (a,b,c) => {
   let raizDelta = Math.sqrt(delta);
   let valor2 = 2* a;
 //definindo x1 e x2
-  x1 = ( -(b) +(Math.sqrt(delta))) / 2 * (a);
-  x2 = ( -(b) -(Math.sqrt(delta))) / 2 * (a);
+  x1 = ( (valor1 + raizDelta) / valor2);
+  x2 = ( (valor1 - raizDelta) / valor2);
 //linha com os coeficientes
   let coeficientesParagrafo = document.createElement("p");
   let coeficientes = document.createTextNode('a = '+a+' / b = '+b+' / c = '+c);
@@ -137,5 +137,6 @@ const completa = (a,b,c) => {
 // -------------------------------------------------------
 //exibindo o resultado
   contas.appendChild(equacaoCompleta);
+  console.log(x1+" "+x2);
   return x1+" "+x2;
 }
