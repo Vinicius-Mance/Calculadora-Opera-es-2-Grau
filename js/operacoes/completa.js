@@ -11,7 +11,6 @@ const completa = (a,b,c) => {
 //definindo x1 e x2
   x1 = ( -(b) +(Math.sqrt(delta))) / 2 * (a);
   x2 = ( -(b) -(Math.sqrt(delta))) / 2 * (a);
-
 //linha com os coeficientes
   let coeficientesParagrafo = document.createElement("p");
   let coeficientes = document.createTextNode('a = '+a+' / b = '+b+' / c = '+c);
