@@ -137,6 +137,5 @@ const completa = (a,b,c) => {
 // -------------------------------------------------------
 //exibindo o resultado
   contas.appendChild(equacaoCompleta);
-  console.log(x1+" "+x2);
   return x1+" "+x2;
 }

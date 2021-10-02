@@ -28,12 +28,9 @@ const calcularOperacaoSegundoGrau =
 
     completa(a,b,c);
 
-  } else if (a && b && !c) {
+  } else if (a && b && c==0) {
 
-    x1 = 0;
-    x2 = -(b/a);
-    console.log("a = "+a+" / b = "+b+" / c = "+c);
-    return x1+" "+x2;
+    ausenciaC(a,b);
 
   } else if (a && b==0 && c) {
 

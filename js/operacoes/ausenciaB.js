@@ -17,7 +17,6 @@ const ausenciaB = (a,c) => {
     erroParagrafo.appendChild(erroTexto);
     ausenciaBDiv.appendChild(erroParagrafo);
     contas.appendChild(ausenciaBDiv);
-
     return "X não tem raízes reais";
 
   }
@@ -80,7 +79,5 @@ const ausenciaB = (a,c) => {
   contas.appendChild(ausenciaBDiv);
     x1 = Math.sqrt(-(c)/a);
     x2 = -(Math.sqrt(-(c)/a));
-
     return x1+" "+x2;
-
 }
