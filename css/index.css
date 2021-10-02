@@ -1,0 +1,37 @@
+* {
+ scroll-behavior: smooth;
+}
+body {
+  /* mobile:
+  background-image: url(https://pbs.twimg.com/media/EXSG-shXQAUAati.jpg); */
+  background-image: url(../img/indioBombadoEmo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(0,0,0, 0.5);
+  background-blend-mode: overlay;
+  font-size: 16px;
+}
+
+main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#formularioEquacao {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+#formularioEquacao label {
+  text-align: center;
+  display: flex;
+  flex-flow: column wrap;
+  width: calc(30% - 10px);
+}
+
+#calcular {
+  height: 2rem;
+  width: 100%;
+}

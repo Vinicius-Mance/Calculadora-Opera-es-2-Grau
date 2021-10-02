@@ -79,9 +79,8 @@
       let raizDelta = Math.sqrt(delta);
       let valor2 = 2* a;
     //definindo x1 e x2
-      x1 = ( -(b) +(Math.sqrt(delta))) / 2 * (a);
-      x2 = ( -(b) -(Math.sqrt(delta))) / 2 * (a);
-
+      x1 = ( (valor1 + raizDelta) / valor2);
+      x2 = ( (valor1 - raizDelta) / valor2);
     //linha com os coeficientes
       let coeficientesParagrafo = document.createElement("p");
       let coeficientes = document.createTextNode('a = '+a+' / b = '+b+' / c = '+c);
@@ -210,7 +209,7 @@
       contas.appendChild(equacaoCompleta);
       return x1+" "+x2;
     }
-    //ausenciaA.js
+
     const ausenciaA = (b,c) => {
       x = -(c/b);
     //criando a div responsável pela exibição
@@ -270,23 +269,160 @@
       contas.appendChild(ausenciaADiv);
       return x;
     }
-    //ausenciaB
+
     const ausenciaB = (a,c) => {
+
+      let ausenciaBDiv = document.createElement("div");
+      ausenciaBDiv.classList.add("ausenciaBDiv");
+
+      let coeficientesParagrafo = document.createElement("p");
+      let coeficientes = document.createTextNode('a = '+a+' / b = 0 / c = '+c);
+      coeficientesParagrafo.appendChild(coeficientes);
+      ausenciaBDiv.appendChild(coeficientesParagrafo);
 
       if (c > 0) {
 
-        console.log("a = "+a+" / b = 0 / c = "+c);
-        return "É impossível calcular essa operação";
+        let erroParagrafo = document.createElement("span");
+        erroParagrafo.classList.add("erro");
+        let erroTexto = document.createTextNode("X não tem raízes reais");
 
-      } else {
-
-        x1 = Math.sqrt(-(c)/a);
-        x2 = -(Math.sqrt(-(c)/a));
-        console.log("a = "+a+" / b = "+b+" / c = "+c);
-        return x1+" "+x2;
+        erroParagrafo.appendChild(erroTexto);
+        ausenciaBDiv.appendChild(erroParagrafo);
+        contas.appendChild(ausenciaBDiv);
+        return "X não tem raízes reais";
 
       }
+    //-------------------------------------------------------
+    // linha da operação - parte 1
+      let contaParagrafo1 = document.createElement("p");
+      let contaNumeros1 = document.createTextNode(a+"X² "+c+" = 0");
 
+      contaParagrafo1.appendChild(contaNumeros1);
+      ausenciaBDiv.appendChild(contaParagrafo1);
+    //-------------------------------------------------------
+    // linha da operação - parte 2
+      let contaParagrafo2 = document.createElement("p");
+      let contaNumeros2 = document.createTextNode(a+"X² = "+ -(c));
+
+      contaParagrafo2.appendChild(contaNumeros2);
+      ausenciaBDiv.appendChild(contaParagrafo2);
+    //-------------------------------------------------------
+    // linha superior da operação - parte 3
+      let contaParagrafo3_1 = document.createElement("p");
+      let contaNumeros3_1 = document.createTextNode("X² = "+ -(c));
+
+      contaParagrafo3_1.appendChild(contaNumeros3_1);
+      ausenciaBDiv.appendChild(contaParagrafo3_1);
+    // linha inferior da operação - parte 3
+      let contaParagrafo3_2 = document.createElement("p");
+      let contaNumeros3_2 = document.createTextNode(a);
+
+      contaParagrafo3_2.appendChild(contaNumeros3_2);
+      ausenciaBDiv.appendChild(contaParagrafo3_2);
+    //-------------------------------------------------------
+    // linha da operação - parte 4
+      let contaParagrafo4 = document.createElement("p");
+      let contaNumeros4 = document.createTextNode("X² = "+ -(c) / a);
+
+      contaParagrafo4.appendChild(contaNumeros4);
+      ausenciaBDiv.appendChild(contaParagrafo4);
+    //-------------------------------------------------------
+    // linha da operação - parte 5
+      let contaParagrafo5 = document.createElement("p");
+      let contaNumeros5 = document.createTextNode("X = ± √"+ -(c) / a);
+
+      contaParagrafo5.appendChild(contaNumeros5);
+      ausenciaBDiv.appendChild(contaParagrafo5);
+    //-------------------------------------------------------
+    // linha da operação - parte 6 - x1
+      let contaParagrafo6 = document.createElement("p");
+      let contaNumeros6 = document.createTextNode("X1 = "+ Math.sqrt(-(c) / a));
+
+      contaParagrafo6.appendChild(contaNumeros6);
+      ausenciaBDiv.appendChild(contaParagrafo6);
+    //-------------------------------------------------------
+    // linha da operação - parte 7 - x2
+      let contaParagrafo7 = document.createElement("p");
+      let contaNumeros7 = document.createTextNode("X2 = "+ -(Math.sqrt(-(c) / a)));
+
+      contaParagrafo7.appendChild(contaNumeros7);
+      ausenciaBDiv.appendChild(contaParagrafo7);
+    //-------------------------------------------------------
+      contas.appendChild(ausenciaBDiv);
+        x1 = Math.sqrt(-(c)/a);
+        x2 = -(Math.sqrt(-(c)/a));
+        return x1+" "+x2;
+    }
+    //ausenciaC
+    const ausenciaC = (a,b) => {
+      x1 = 0;
+      x2 = -(b/a);
+
+      let ausenciaCDiv = document.createElement("div");
+      ausenciaCDiv.classList.add("ausenciaCDiv");
+
+      let coeficientesParagrafo = document.createElement("p");
+      let coeficientes = document.createTextNode('a = '+a+' / b = '+b+' / c = 0');
+      coeficientesParagrafo.appendChild(coeficientes);
+      ausenciaCDiv.appendChild(coeficientesParagrafo);
+    //-----------------------------------------------
+    // linha da operação - parte 1
+      let contaParagrafo1 = document.createElement("p");
+      let contaNumeros1 = document.createTextNode(a+"X² +("+b+"X) = 0");
+
+      contaParagrafo1.appendChild(contaNumeros1);
+      ausenciaCDiv.appendChild(contaParagrafo1);
+    //----------------------------------------------
+    // linha da operação - parte 2
+      let contaParagrafo2 = document.createElement("p");
+      let contaNumeros2 = document.createTextNode("X("+a+"X "+b+") = 0");
+
+      contaParagrafo2.appendChild(contaNumeros2);
+      ausenciaCDiv.appendChild(contaParagrafo2);
+    //----------------------------------------------
+    // linha da operação - parte 3
+      let contaParagrafo3 = document.createElement("p");
+      let contaNumeros3 = document.createTextNode("X1 = 0");
+
+      contaParagrafo3.appendChild(contaNumeros3);
+      ausenciaCDiv.appendChild(contaParagrafo3);
+    //----------------------------------------------
+    // linha da operação - parte 4
+      let contaParagrafo4 = document.createElement("p");
+      let contaNumeros4 = document.createTextNode(a+"X "+b+" = 0");
+
+      contaParagrafo4.appendChild(contaNumeros4);
+      ausenciaCDiv.appendChild(contaParagrafo4);
+
+    //----------------------------------------------
+    // linha da operação - parte 5
+      let contaParagrafo5 = document.createElement("p");
+      let contaNumeros5 = document.createTextNode(a+"X = "+ -(b) );
+
+      contaParagrafo5.appendChild(contaNumeros5);
+      ausenciaCDiv.appendChild(contaParagrafo5);
+    //----------------------------------------------
+    // linha superior da operação - parte 6
+      let contaParagrafo6_1 = document.createElement("p");
+      let contaNumeros6_1 = document.createTextNode("X = "+ -(b) );
+
+      contaParagrafo6_1.appendChild(contaNumeros6_1);
+      ausenciaCDiv.appendChild(contaParagrafo6_1);
+    // linha inferior da operação - parte 6
+      let contaParagrafo6_2 = document.createElement("p");
+      let contaNumeros6_2 = document.createTextNode(a);
+
+      contaParagrafo6_2.appendChild(contaNumeros6_2);
+      ausenciaCDiv.appendChild(contaParagrafo6_2);
+    //----------------------------------------------
+    // linha da operação - parte 7
+      let contaParagrafo7 = document.createElement("p");
+      let contaNumeros7 = document.createTextNode("X2 = "+ -(b) / a );
+
+      contaParagrafo7.appendChild(contaNumeros7);
+      ausenciaCDiv.appendChild(contaParagrafo7);
+      contas.appendChild(ausenciaCDiv);
+      return x1+" "+x2;
     }
     </script>
   </body>

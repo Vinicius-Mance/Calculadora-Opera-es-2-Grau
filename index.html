@@ -2,27 +2,79 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./css/index.css">
   </head>
   <body>
-    <form id="formularioEquacao">
-      <label for="letraA">Letra A</label> <br>
-      <input value="2" id="letraA" type="number" name="letraA" placeholder="A"> <br>
+    <main>
+      <h1>
+        Calculadora de equações de segundo grau
+      </h1>
+      <h2>
+        Para calcular a operação de segundo grau, identifique os coeficientes da sua conta e insira-os abaixo.
+      </h2>
+      <h3>
+        Não consegue identificar os coeficientes? <a href="#explanar"> Eu te explico </a>
+      </h3>
+      <form id="formularioEquacao">
+        <label for="letraA">Letra A
+          <input value="2" id="letraA" type="number" name="letraA" placeholder="A">
+        </label>
 
-      <label for="letraB">Letra B</label> <br>
-      <input value="-3" id="letraB" type="number" name="letraB" placeholder="B"> <br>
+        <label for="letraB">Letra B
+          <input value="5" id="letraB" type="number" name="letraB" placeholder="B">
+        </label>
 
-      <label for="letraC">Letra C</label> <br>
-      <input value="" id="letraC" type="number" name="letraC" placeholder="C"> <br>
+        <label for="letraC">Letra C
+          <input value="3" id="letraC" type="number" name="letraC" placeholder="C">
+        </label>
 
-      <button id="calcular" type="submit" name="calcular">Calcular</button>
-    </form>
-    <div id="contas"></div>
+        <button id="calcular" type="submit" name="calcular">Calcular</button>
+      </form>
 
-  <script type="text/javascript" src="./js/index.js"></script>
-  <script type="text/javascript" src="./js/operacoes/completa.js"></script>
-  <script type="text/javascript" src="./js/operacoes/ausenciaA.js"></script>
-  <script type="text/javascript" src="./js/operacoes/ausenciaB.js"></script>
-  <script type="text/javascript" src="./js/operacoes/ausenciaC.js"></script>
+      <h2 id="baseConta"> 2x² + 5x + 3 = 0</h2>
+
+      <div id="contas"></div>
+
+      <div id="explanar">
+        <h3>
+          Todo polinômio de segundo grau (uma forma chique de dizer "conta com x²") consiste em descobrir os dois valores que x possa ter. <br>
+          Coeficientes são os números que estão presentes na conta. <br>
+          Os coeficientes podem ser expressos com a seguinte expressão:
+        </h3>
+
+        <p>
+          ax² + bx + c = 0
+        </p>
+
+        <h3>
+          Se você não entendeu nada, relaxa, essas contas são chatas de entender mesmo <br>
+          Aquilo que estiver multiplicando x², é o coeficiente <i> a </i> <br>
+          Aquilo que estiver multiplicando x (ou seja, x sem expoente), é o coeficiente <i> b </i> <br>
+          Aquilo que não estiver multiplicando variável nenhuma, é o coeficiente <i> c </i> <br>
+          Olhe o exemplo abaixo:
+        </h3>
+
+        <p>
+          2x² + 5x + 3 = 0
+        </p>
+
+        <h3>
+          No caso acima, nosso <i> a </i> é 2, porque x² está sendo multiplicado por 2 <br>
+          O coeficiente <i> b </i> é 5, pois x está sendo multiplicado por 5 <br>
+          O coeficiente <i> c </i> é 3, pois não está multiplicando nenhuma variável <br>
+          Portanto:
+        </h3>
+
+        <p>
+          a = 2 / b = 5 / c = 3
+        </p>
+      </div>
+    <script type="text/javascript" src="./js/index.js"></script>
+    <script type="text/javascript" src="./js/operacoes/completa.js"></script>
+    <script type="text/javascript" src="./js/operacoes/ausenciaA.js"></script>
+    <script type="text/javascript" src="./js/operacoes/ausenciaB.js"></script>
+    <script type="text/javascript" src="./js/operacoes/ausenciaC.js"></script>
+    </main>
   </body>
 </html>
