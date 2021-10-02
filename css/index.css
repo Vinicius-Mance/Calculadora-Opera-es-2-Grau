@@ -6,8 +6,9 @@ body {
   background-image: url(https://pbs.twimg.com/media/EXSG-shXQAUAati.jpg); */
   background-image: url(../img/indioBombadoEmo.jpg);
   background-size: cover;
+  background-attachment: fixed;
   background-repeat: no-repeat;
-  background-color: rgba(0,0,0, 0.5);
+  background-color: rgba(0,0,0, 0.8);
   background-blend-mode: overlay;
   font-size: 16px;
 }
@@ -34,4 +35,8 @@ main {
 #calcular {
   height: 2rem;
   width: 100%;
+}
+
+.linha1, .linha2 , .linha3, .linha4, .linha5, .linha6 , .linha7, .linha8, .linha9 {
+  color: red;
 }
